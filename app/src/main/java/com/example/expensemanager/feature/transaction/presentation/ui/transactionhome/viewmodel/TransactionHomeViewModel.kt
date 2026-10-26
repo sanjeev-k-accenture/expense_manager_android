@@ -2,10 +2,9 @@ package com.example.expensemanager.feature.transaction.presentation.ui.transacti
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.expensemanager.feature.transaction.domain.usecase.GetAllTransactionsUseCase
-import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.mapper.toUiModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHomeUiAction
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHomeUiState
+import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.util.GetTransactionHomeUiDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TransactionHomeViewModel @Inject constructor(
-    private val getAllTransactionsUseCase: GetAllTransactionsUseCase,
+    private val getTransactionHomeUiDataUseCase: GetTransactionHomeUiDataUseCase,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<TransactionHomeUiState>(TransactionHomeUiState.Loading)
@@ -32,18 +31,20 @@ class TransactionHomeViewModel @Inject constructor(
         }
     }
 
-    fun getTransactions() {
+    private fun getTransactions() {
         viewModelScope.launch {
-            val transactionsResult = getAllTransactionsUseCase(Unit)
+            val transactionsHomeResult = getTransactionHomeUiDataUseCase(Unit)
 
-            transactionsResult.fold(
-                onSuccess = { transactionsFlow ->
-                    transactionsFlow.collectLatest { transactions ->
+            transactionsHomeResult.fold(
+                onSuccess = { resultFlow ->
+                    resultFlow.collectLatest { result ->
                         _uiState.update {
-                            if (transactions.isEmpty()) {
+                            if (result.transactionHistoryList.isEmpty()) {
                                 TransactionHomeUiState.Empty
                             } else {
-                                TransactionHomeUiState.Success(transactions.toUiModel())
+                                TransactionHomeUiState.Success(
+                                    transactionsHomeUiModel = result
+                                )
                             }
                         }
                     }

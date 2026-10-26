@@ -1,8 +1,11 @@
 package com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.screen.view
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -16,17 +19,17 @@ import androidx.compose.ui.unit.dp
 import com.example.expensemanager.R
 import com.example.expensemanager.common.di.qualifier.PreviewWithUi
 import com.example.expensemanager.common.ui.EmptyView
-import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHistoryItemUiModel
+import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHomeUiModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.util.transactionHistoryListForPreview
 
 @Composable
 fun TransactionHomeView(
     modifier: Modifier = Modifier,
-    transactions: List<TransactionHistoryItemUiModel>,
+    transactionsHomeUiModel: TransactionHomeUiModel,
     onAddTxnBtnClick: () -> Unit,
     onTransactionClick: (id: Int) -> Unit
 ) {
-    if (transactions.isEmpty()) {
+    if (transactionsHomeUiModel.transactionHistoryList.isEmpty()) {
         EmptyView(
             message = stringResource(R.string.no_items),
             buttonText = stringResource(R.string.add_transaction),
@@ -37,14 +40,37 @@ fun TransactionHomeView(
             Column(modifier = modifier.fillMaxSize()) {
                 Text(
                     stringResource(R.string.your_transactions),
-                    style = MaterialTheme.typography.headlineMedium,
+                    style = MaterialTheme.typography.headlineLarge,
                 )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(color = MaterialTheme.colorScheme.primaryContainer),
+                    horizontalArrangement = Arrangement.SpaceAround
+                ) {
+                    Text(
+                        color = MaterialTheme.colorScheme.error,
+                        text = stringResource(
+                            R.string.total_debit,
+                            transactionsHomeUiModel.totalDebit
+                        )
+                    )
+
+                    Text(
+                        color = MaterialTheme.colorScheme.outline,
+                        text = stringResource(
+                            R.string.total_credit,
+                            transactionsHomeUiModel.totalCredit
+                        )
+                    )
+                }
 
                 TransactionHistoryListView(
                     modifier = Modifier
                         .fillMaxSize()
                         .weight(2f),
-                    transactions = transactions,
+                    transactions = transactionsHomeUiModel.transactionHistoryList,
                     onItemClick = onTransactionClick
                 )
 
@@ -69,6 +95,10 @@ fun TransactionHomeView(
 private fun TransactionHomeViewPreview() {
     TransactionHomeView(
         modifier = Modifier,
-        transactions = transactionHistoryListForPreview,
+        transactionsHomeUiModel = TransactionHomeUiModel(
+            transactionHistoryList = transactionHistoryListForPreview,
+            totalCredit = 50,
+            totalDebit = 50
+        ),
         onAddTxnBtnClick = {}) {}
 }

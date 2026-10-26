@@ -2,7 +2,7 @@ package com.example.expensemanager.feature.transaction.presentation.ui.transacti
 
 sealed interface TransactionHomeUiState {
     data object Loading : TransactionHomeUiState
-    data class Success(val transactionHistoryList: List<TransactionHistoryItemUiModel>) :
+    data class Success(val transactionsHomeUiModel: TransactionHomeUiModel) :
         TransactionHomeUiState
 
     data object Empty : TransactionHomeUiState

@@ -27,8 +27,10 @@
     <string name="no_items">We don\'t have anything to show you.\nWould you like to add some transactions?</string>
     <string name="add_transaction">Add transaction</string>
 
-    <!-- Non-empty Transaction Screen-->
+    <!-- Transaction Home Screen-->
     <string name="your_transactions">Your transactions</string>
+    <string name="total_debit">Total debit: %d</string>
+    <string name="total_credit">Total credit: %d</string>
 
     <!-- Transaction details-->
     <string name="transaction_id">Transaction ID:</string>

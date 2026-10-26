@@ -13,6 +13,7 @@ import com.example.expensemanager.common.ui.ErrorView
 import com.example.expensemanager.common.ui.LoadingView
 import com.example.expensemanager.feature.transaction.presentation.navigation.TransactionDestination
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHomeUiAction
+import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHomeUiModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHomeUiState
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.screen.view.TransactionHomeView
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.util.transactionHistoryListForPreview
@@ -50,7 +51,7 @@ fun TransactionHomeScreen(
 
         is TransactionHomeUiState.Success -> TransactionHomeView(
             modifier = modifier,
-            transactions = currUiState.transactionHistoryList,
+            transactionsHomeUiModel = currUiState.transactionsHomeUiModel,
             onAddTxnBtnClick = {
                 navController.navigate(route = TransactionDestination.Form.route)
             },
@@ -104,7 +105,11 @@ private fun TransactionHomeScreenPreview4() {
     TransactionHomeScreen(
         uiStateFlow = MutableStateFlow(
             TransactionHomeUiState.Success(
-                transactionHistoryList = transactionHistoryListForPreview
+                transactionsHomeUiModel = TransactionHomeUiModel(
+                    transactionHistoryList = transactionHistoryListForPreview,
+                    totalDebit = 50,
+                    totalCredit = 50
+                ),
             )
         ), handleUiAction = {},
         navController = NavController(
