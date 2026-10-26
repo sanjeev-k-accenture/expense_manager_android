@@ -61,4 +61,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.androidx.navigation.compose)
     testImplementation(libs.kotlinx.coroutines.test)
+
+    implementation(libs.room)
+    ksp(libs.room.compiler)
 }

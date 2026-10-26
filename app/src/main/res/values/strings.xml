@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">ExpenseManager</string>
 
-    <!--NewTransactionScreen-->
+    <!--Common error screen-->
+    <string name="common_error_message">Something went wrong.</string>
+    <string name="try_again">Try again</string>
+
+    <!--Common empty screen-->
+    <string name="common_empty_message">Nothing to see here.</string>
+
+    <!--TransactionFormScreen-->
     <string name="new_transaction_title">Enter your new transaction</string>
     <string name="amount">Amount</string>
     <string name="amount_transacted">Please enter transaction amount</string>
@@ -12,4 +19,13 @@
     <string name="transaction_type_credit">Credit</string>
     <string name="transaction_type_debit">Debit</string>
     <string name="save_transaction">Save transaction</string>
+    <string name="save_transaction_failed">Failed to save the transaction. Please try again.</string>
+    <string name="save_transaction_success">Transaction saved.</string>
+
+    <!--Empty Transaction Screen-->
+    <string name="no_items">We don\'t have anything to show you.\nWould you like to add some transactions?</string>
+    <string name="add_transaction">Add transaction</string>
+
+    <!-- Non-empty Transaction Screen-->
+    <string name="your_transactions">Your transactions</string>
 </resources>

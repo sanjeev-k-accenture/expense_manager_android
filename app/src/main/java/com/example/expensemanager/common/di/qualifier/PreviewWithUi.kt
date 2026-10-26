@@ -1,4 +1,4 @@
-package com.example.expensemanager.common.model.di.qualifier
+package com.example.expensemanager.common.di.qualifier
 
 import androidx.compose.ui.tooling.preview.Preview
 import javax.inject.Qualifier

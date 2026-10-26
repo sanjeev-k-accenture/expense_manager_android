@@ -1,4 +1,4 @@
-package com.example.expensemanager.common.model.di.qualifier
+package com.example.expensemanager.common.di.qualifier
 
 import javax.inject.Qualifier
 

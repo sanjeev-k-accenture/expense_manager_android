@@ -1,4 +1,4 @@
-package com.example.expensemanager.feature.transaction.presentation.ui.newtransaction.view
+package com.example.expensemanager.feature.transaction.presentation.ui.transactionform.screen.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,7 +14,6 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -24,16 +23,21 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import com.example.expensemanager.R
 import com.example.expensemanager.common.model.TransactionType
-import com.example.expensemanager.common.model.di.qualifier.PreviewWithUi
+import com.example.expensemanager.common.di.qualifier.PreviewWithUi
 import com.example.expensemanager.config.theme.ExpenseManagerTheme
 
 @Composable
 fun TransactionTypeRadioButton(
     modifier: Modifier = Modifier,
+    selectedTransactionType: TransactionType? = null,
     onTransactionTypeSelected: (TransactionType) -> Unit
 ) {
     val radioOptions = TransactionType.entries
-    val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
+    val (selectedOption, onOptionSelected) = remember {
+        mutableStateOf(
+            selectedTransactionType ?: radioOptions[0]
+        )
+    }
 
     Column(modifier = modifier.fillMaxWidth()) {
         Text(stringResource(R.string.select_transaction_type))
