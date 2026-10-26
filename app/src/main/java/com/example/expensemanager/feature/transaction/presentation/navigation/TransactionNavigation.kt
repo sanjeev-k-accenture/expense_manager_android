@@ -6,10 +6,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.expensemanager.R
+import com.example.expensemanager.feature.transaction.presentation.ui.transactiondetail.screen.TransactionDetailScreen
+import com.example.expensemanager.feature.transaction.presentation.ui.transactiondetail.viewmodel.TransactionDetailViewModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionform.screen.TransactionFormScreen
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionform.viewmodel.TransactionFormViewModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.screen.TransactionHomeScreen
@@ -30,11 +34,21 @@ fun TransactionNavigation(modifier: Modifier = Modifier, snackbarHostState: Snac
             val formResult =
                 resultHandle.get<Boolean>(key = TransactionDestination.Form.SAVE_SUCCESSFUL)
                     ?: false
-            val successMessage = stringResource(R.string.save_transaction_success)
-            LaunchedEffect(formResult) {
+            val saveSuccessMessage = stringResource(R.string.save_transaction_success)
+
+            val detailResult =
+                resultHandle.get<Boolean>(key = TransactionDestination.Detail.DELETE_SUCCESSFUL)
+                    ?: false
+            val deleteSuccessMessage = stringResource(R.string.delete_transaction_success)
+
+            LaunchedEffect(formResult, detailResult) {
                 if (formResult) {
-                    snackbarHostState.showSnackbar(message = successMessage)
+                    snackbarHostState.showSnackbar(message = saveSuccessMessage)
                     resultHandle.set(key = TransactionDestination.Form.SAVE_SUCCESSFUL, null)
+                }
+                if (detailResult) {
+                    snackbarHostState.showSnackbar(message = deleteSuccessMessage)
+                    resultHandle.set(key = TransactionDestination.Detail.DELETE_SUCCESSFUL, null)
                 }
             }
 
@@ -54,6 +68,25 @@ fun TransactionNavigation(modifier: Modifier = Modifier, snackbarHostState: Snac
                 uiEventFlow = viewModel.eventFlow,
                 onFormUpdated = viewModel::updateForm,
                 onSaveTransaction = viewModel::onSaveTransaction,
+                navController = navController,
+                snackbarHostState = snackbarHostState
+            )
+        }
+
+        composable(
+            route = TransactionDestination.Detail.route, arguments = listOf(
+                navArgument(name = TRANSACTION_DETAIL_PARAM, builder = {
+                    type = NavType.IntType
+                    nullable = false
+                })
+            )
+        ) {
+            val viewModel = hiltViewModel<TransactionDetailViewModel>()
+            TransactionDetailScreen(
+                modifier = modifier,
+                uiStateFlow = viewModel.uiState,
+                uiEventFlow = viewModel.uiEvent,
+                handleUiAction = viewModel::handleUiAction,
                 navController = navController,
                 snackbarHostState = snackbarHostState
             )

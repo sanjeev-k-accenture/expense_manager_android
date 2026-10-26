@@ -4,6 +4,7 @@
     <!--Common error screen-->
     <string name="common_error_message">Something went wrong.</string>
     <string name="try_again">Try again</string>
+    <string name="go_back">Go back</string>
 
     <!--Common empty screen-->
     <string name="common_empty_message">Nothing to see here.</string>
@@ -28,4 +29,13 @@
 
     <!-- Non-empty Transaction Screen-->
     <string name="your_transactions">Your transactions</string>
+
+    <!-- Transaction details-->
+    <string name="transaction_id">Transaction ID:</string>
+    <string name="delete_transaction">Delete transaction</string>
+    <string name="delete_transaction_success">Transaction deleted.</string>
+    <string name="delete_transaction_failed">Failed to delete the transaction. Please try again.</string>
+    <string name="transaction_not_found">Transaction not found</string>
+    <string name="transaction_debited">Spent %d on %s</string>
+    <string name="transaction_credited">Received %d on %s</string>
 </resources>

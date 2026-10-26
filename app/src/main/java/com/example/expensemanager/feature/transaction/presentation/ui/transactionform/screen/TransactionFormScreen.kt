@@ -55,8 +55,7 @@ fun TransactionFormScreen(
 
     val contextState = rememberUpdatedState(LocalContext.current)
     val lifecycleOwner = LocalLifecycleOwner.current
-//
-//    val successMessage by lazy { contextState.value.getString(R.string.save_transaction_success) }
+
     val failureMessage by lazy { contextState.value.getString(R.string.save_transaction_failed) }
 
     LaunchedEffect(uiEventFlow) {
@@ -64,10 +63,6 @@ fun TransactionFormScreen(
             uiEventFlow.collect { event ->
                 when (event) {
                     is TransactionFormEvent.SaveFailure -> {
-//                        navController.previousBackStackEntry?.savedStateHandle?.set(
-//                            key = TransactionDestination.Form.SAVE_SUCCESSFUL,
-//                            value = false
-//                        )
                         snackbarHostState.showSnackbar(message = failureMessage)
                     }
 

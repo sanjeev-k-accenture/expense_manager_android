@@ -24,6 +24,7 @@ fun TransactionHomeView(
     modifier: Modifier = Modifier,
     transactions: List<TransactionHistoryItemUiModel>,
     onAddTxnBtnClick: () -> Unit,
+    onTransactionClick: (id: Int) -> Unit
 ) {
     if (transactions.isEmpty()) {
         EmptyView(
@@ -44,6 +45,7 @@ fun TransactionHomeView(
                         .fillMaxSize()
                         .weight(2f),
                     transactions = transactions,
+                    onItemClick = onTransactionClick
                 )
 
                 Button(
@@ -68,5 +70,5 @@ private fun TransactionHomeViewPreview() {
     TransactionHomeView(
         modifier = Modifier,
         transactions = transactionHistoryListForPreview,
-        onAddTxnBtnClick = {})
+        onAddTxnBtnClick = {}) {}
 }

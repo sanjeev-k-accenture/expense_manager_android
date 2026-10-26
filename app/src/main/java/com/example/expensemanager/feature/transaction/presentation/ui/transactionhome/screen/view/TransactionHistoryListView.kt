@@ -1,5 +1,6 @@
 package com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.screen.view
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,7 @@ import com.example.expensemanager.feature.transaction.presentation.ui.transactio
 fun TransactionHistoryListView(
     modifier: Modifier = Modifier,
     transactions: List<TransactionHistoryItemUiModel>,
+    onItemClick: (id: Int) -> Unit
 ) {
     LazyColumn(
         modifier = modifier
@@ -28,7 +30,10 @@ fun TransactionHistoryListView(
             TransactionHistoryItemView(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp),
+                    .padding(12.dp)
+                    .clickable {
+                        onItemClick(transaction.id)
+                    },
                 transaction = transaction,
             )
         }
@@ -39,6 +44,6 @@ fun TransactionHistoryListView(
 @Composable
 private fun TransactionHistoryListViewPreview() {
     ExpenseManagerTheme {
-        TransactionHistoryListView(transactions = transactionHistoryListForPreview)
+        TransactionHistoryListView(transactions = transactionHistoryListForPreview) {}
     }
 }

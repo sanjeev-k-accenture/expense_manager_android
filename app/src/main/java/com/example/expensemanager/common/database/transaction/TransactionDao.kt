@@ -17,6 +17,7 @@ interface TransactionDao {
     @Upsert
     suspend fun upsertTransaction(transactionEntity: TransactionEntity)
 
-    @Delete
-    suspend fun deleteTransaction(transactionEntity: TransactionEntity)
+    //    @Delete
+    @Query("DELETE FROM $TRANSACTION_TABLE_NAME WHERE id = :id")
+    suspend fun deleteTransaction(id: Int)
 }

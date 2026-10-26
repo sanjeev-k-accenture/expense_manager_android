@@ -31,4 +31,8 @@ class TransactionsLocalDataSource @Inject constructor(
         val entity = transaction.toTransactionEntity()
         transactionDao.upsertTransaction(transactionEntity = entity)
     }
+
+    suspend fun deleteTransaction(transactionId: Int) {
+        transactionDao.deleteTransaction(id = transactionId)
+    }
 }

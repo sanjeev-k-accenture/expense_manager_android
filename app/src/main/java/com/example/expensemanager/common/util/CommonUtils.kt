@@ -23,6 +23,7 @@ fun formatDate(timeStamp: Long): String {
 
     return buildString {
         append(dateTime)
+        append(" ")
         append(zoneName)
     }
 }
