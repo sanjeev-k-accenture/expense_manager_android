@@ -22,7 +22,8 @@ class TransactionDetailUiMapper @Inject constructor(
                     title = description,
                     amount = amount,
                     time = formattedTime,
-                    transactionType = type
+                    transactionType = type,
+                    categoryName = category.name
                 )
             }
         }

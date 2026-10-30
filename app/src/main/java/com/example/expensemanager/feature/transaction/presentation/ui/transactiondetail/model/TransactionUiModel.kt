@@ -8,4 +8,5 @@ data class TransactionUiModel(
     val amount: Int,
     val time: String,
     val transactionType: TransactionType,
+    val categoryName: String,
 )

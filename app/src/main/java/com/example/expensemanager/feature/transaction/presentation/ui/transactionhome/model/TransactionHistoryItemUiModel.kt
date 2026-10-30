@@ -9,4 +9,5 @@ data class TransactionHistoryItemUiModel(
     val description: String = "",
     val transactionType: TransactionType,
     val formattedTime: String,
+    val categoryName: String,
 )

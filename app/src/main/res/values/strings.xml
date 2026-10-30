@@ -40,4 +40,5 @@
     <string name="transaction_not_found">Transaction not found</string>
     <string name="transaction_debited">Spent %d on %s</string>
     <string name="transaction_credited">Received %d on %s</string>
+    <string name="category">Category:</string>
 </resources>

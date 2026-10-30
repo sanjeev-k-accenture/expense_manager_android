@@ -8,7 +8,8 @@ val transactionHistoryListForPreview = List(10) { index ->
         id = index,
         amount = index * 20 + 5,
         description = "My ${index}th transaction",
-        formattedTime = "$index Oct 2026",
-        transactionType = if (index % 3 == 0) TransactionType.Debit else TransactionType.Credit
+        formattedTime = "$index Oct 2026, 14:03 PM",
+        transactionType = if (index % 3 == 0) TransactionType.Debit else TransactionType.Credit,
+        categoryName = "uncategorized"
     )
 }

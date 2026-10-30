@@ -6,16 +6,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.example.expensemanager.common.model.TransactionType
 import com.example.expensemanager.common.di.qualifier.PreviewWithUi
+import com.example.expensemanager.common.model.TransactionType
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.model.TransactionHistoryItemUiModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionhome.util.transactionHistoryListForPreview
 
@@ -34,11 +36,23 @@ fun TransactionHistoryItemView(
                     alpha = 0.3f
                 )
             )
+            .padding(horizontal = 24.dp)
     ) {
+        Text(
+            transaction.categoryName,
+            style = MaterialTheme.typography.labelSmall,
+            maxLines = 1,
+            overflow = TextOverflow.MiddleEllipsis,
+            fontStyle = FontStyle.Italic,
+            modifier = Modifier
+                .padding(top = 12.dp)
+                .background(color = MaterialTheme.colorScheme.inversePrimary, shape = CircleShape)
+                .padding(all = 6.dp)
+        )
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 24.dp, start = 24.dp, end = 24.dp, bottom = 12.dp),
+                .padding(vertical = 12.dp),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             Row(
@@ -59,7 +73,7 @@ fun TransactionHistoryItemView(
             text = transaction.description,
             maxLines = 3,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.padding(bottom = 24.dp, start = 24.dp, end = 24.dp)
+            modifier = Modifier.padding(bottom = 24.dp)
         )
     }
 }
@@ -70,13 +84,7 @@ private fun TransactionHistoryItemViewPreview1() {
     Scaffold {
         TransactionHistoryItemView(
             modifier = Modifier.padding(it),
-            transaction = TransactionHistoryItemUiModel(
-                id = 121,
-                amount = 80,
-                description = "Gaming",
-                transactionType = TransactionType.Debit,
-                formattedTime = "24 August 2026"
-            )
+            transaction = transactionHistoryListForPreview[2]
         )
     }
 }
