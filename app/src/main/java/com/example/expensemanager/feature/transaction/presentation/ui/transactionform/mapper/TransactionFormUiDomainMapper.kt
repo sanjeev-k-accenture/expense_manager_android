@@ -16,7 +16,8 @@ class TransactionFormUiDomainMapper @Inject constructor(
                 TransactionFormInput(
                     amount = amount ?: 0,
                     description = description ?: "",
-                    type = type
+                    type = type,
+                    categoryId = categoryId
                 )
             }
         }

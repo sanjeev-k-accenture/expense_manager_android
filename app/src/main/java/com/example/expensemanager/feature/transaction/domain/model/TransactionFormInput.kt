@@ -5,5 +5,6 @@ import com.example.expensemanager.common.model.TransactionType
 data class TransactionFormInput(
     val amount: Int,
     val description: String,
-    val type: TransactionType
+    val type: TransactionType,
+    val categoryId: Int,
 )

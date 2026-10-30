@@ -3,8 +3,9 @@ package com.example.expensemanager.common.di.module
 import android.content.Context
 import androidx.room3.Room
 import androidx.sqlite.driver.AndroidSQLiteDriver
-import com.example.expensemanager.common.database.transaction.TransactionDao
-import com.example.expensemanager.common.database.transaction.TransactionsDatabase
+import com.example.expensemanager.feature.transaction.data.datasource.db.dao.TransactionDao
+import com.example.expensemanager.feature.transaction.data.datasource.db.TransactionsDatabase
+import com.example.expensemanager.feature.transaction.data.datasource.db.migration.MIGRATION_1_2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,6 +24,7 @@ object DatabaseModule {
             TransactionsDatabase.DB_NAME
         )
             .setDriver(AndroidSQLiteDriver())
+            .addMigrations(MIGRATION_1_2)
             .build()
 
         return db

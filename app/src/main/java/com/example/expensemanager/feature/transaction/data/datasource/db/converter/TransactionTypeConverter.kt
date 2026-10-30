@@ -1,4 +1,4 @@
-package com.example.expensemanager.common.database.transaction
+package com.example.expensemanager.feature.transaction.data.datasource.db.converter
 
 import androidx.room3.ColumnTypeConverter
 import com.example.expensemanager.common.model.TransactionType

@@ -1,7 +1,7 @@
 package com.example.expensemanager.feature.transaction.data.datasource
 
-import com.example.expensemanager.common.database.transaction.TransactionDao
 import com.example.expensemanager.common.model.TransactionType
+import com.example.expensemanager.feature.transaction.data.datasource.db.dao.TransactionDao
 import com.example.expensemanager.feature.transaction.data.mapper.toTransaction
 import com.example.expensemanager.feature.transaction.data.mapper.toTransactionEntity
 import com.example.expensemanager.feature.transaction.data.mapper.toTransactionsList

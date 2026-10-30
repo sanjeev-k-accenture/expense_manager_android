@@ -116,6 +116,8 @@ fun TransactionFormView(
             }
         )
 
+        // TODO: Add category dropdown
+
         Button(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)

@@ -8,5 +8,6 @@ data class Transaction(
     val amount: Int,
     val description: String,
     val type: TransactionType,
-    val timestamp: Long
+    val timestamp: Long,
+    val category: Category,
 )
