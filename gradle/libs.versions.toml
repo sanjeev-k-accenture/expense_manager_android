@@ -17,6 +17,7 @@ hilt-lifecycle-viewmodel-compose = "1.4.0"
 kotlinx-coroutines = "1.11.0"
 
 room-version = "3.0.3"
+material-icons-version = "1.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,6 +44,8 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 
 room = { group = "androidx.room3", name = "room3-runtime", version.ref = "room-version" }
 room-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "room-version" }
+
+material-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "material-icons-version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

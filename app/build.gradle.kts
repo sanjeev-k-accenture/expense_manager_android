@@ -64,4 +64,6 @@ dependencies {
 
     implementation(libs.room)
     ksp(libs.room.compiler)
+
+    implementation(libs.material.icons)
 }

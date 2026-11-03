@@ -20,6 +20,7 @@ interface TransactionDao {
     @Query("SELECT SUM(amount) FROM $TRANSACTION_TABLE_NAME WHERE type = :transactionType")
     fun getTotalAmountCreditedOrDebited(transactionType: TransactionType): Flow<Int>
 
+    @Transaction
     @Query("SELECT * FROM $TRANSACTION_TABLE_NAME WHERE id = :id")
     suspend fun getTransaction(id: Int): TransactionWithCategory
 
