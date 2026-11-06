@@ -1,4 +1,5 @@
 # Expense Manager
+Completely offline app. Uses local storage and no networking.
 
 ## Features
 
