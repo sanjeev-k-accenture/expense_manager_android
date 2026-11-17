@@ -4,10 +4,13 @@ const val TRANSACTION_HOME_ROUTE = "transaction_home"
 const val TRANSACTION_FORM_ROUTE = "transaction_form"
 const val TRANSACTION_DETAIL_ROUTE = "transaction_detail"
 
+const val VOICE_RECOGNITION_ROUTE = "voice_recognition"
+
 const val TRANSACTION_DETAIL_PARAM = "transaction_id"
 
 sealed class TransactionDestination(val route: String) {
     data object Home : TransactionDestination(route = TRANSACTION_HOME_ROUTE)
+    data object Voice : TransactionDestination(route = VOICE_RECOGNITION_ROUTE)
     data object Form : TransactionDestination(route = TRANSACTION_FORM_ROUTE) {
         const val SAVE_SUCCESSFUL = "SAVE_SUCCESSFUL"
     }

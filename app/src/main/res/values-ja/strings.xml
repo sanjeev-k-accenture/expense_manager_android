@@ -1,0 +1,15 @@
+<resources>
+    <string name="voice_language">言語</string>
+    <string name="voice_input">音声入力</string>
+    <string name="voice_title">音声認識</string>
+    <string name="voice_tap_to_start">マイクをタップして話してください</string>
+    <string name="voice_listening">聞き取り中… もう一度タップして停止</string>
+    <string name="voice_placeholder">ここに認識された言葉が表示されます</string>
+    <string name="voice_start_listening">聞き取りを開始</string>
+    <string name="voice_stop_listening">聞き取りを停止</string>
+    <string name="voice_permission_denied">音声入力にはマイクの権限が必要です。</string>
+    <string name="voice_not_available">このデバイスでは音声認識を利用できません。</string>
+    <string name="voice_no_speech">音声が検出されませんでした。マイクを確認してもう一度お試しください。</string>
+    <string name="voice_error">音声を認識できませんでした。もう一度お試しください。</string>
+    <string name="voice_level">レベル: %.1f dB</string>
+</resources>

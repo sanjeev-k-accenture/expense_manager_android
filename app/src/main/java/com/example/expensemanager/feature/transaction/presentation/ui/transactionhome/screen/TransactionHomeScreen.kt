@@ -55,6 +55,9 @@ fun TransactionHomeScreen(
             onAddTxnBtnClick = {
                 navController.navigate(route = TransactionDestination.Form.route)
             },
+            onVoiceBtnClick = {
+                navController.navigate(route = TransactionDestination.Voice.route)
+            },
             onTransactionClick = { id ->
                 navController.navigate(
                     route = TransactionDestination.Detail.createRoute(id = id)

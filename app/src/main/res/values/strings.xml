@@ -40,4 +40,19 @@
     <string name="transaction_not_found">Transaction not found</string>
     <string name="transaction_debited">Spent %d on %s</string>
     <string name="transaction_credited">Received %d on %s</string>
+
+    <!-- Voice recognition -->
+    <string name="voice_language">Language</string>
+    <string name="voice_input">Voice input</string>
+    <string name="voice_title">Voice recognition</string>
+    <string name="voice_tap_to_start">Tap the mic to start speaking</string>
+    <string name="voice_listening">Listening… tap again to stop</string>
+    <string name="voice_placeholder">Your words will appear here</string>
+    <string name="voice_start_listening">Start listening</string>
+    <string name="voice_stop_listening">Stop listening</string>
+    <string name="voice_permission_denied">Microphone permission is required for voice input.</string>
+    <string name="voice_not_available">Speech recognition is not available on this device.</string>
+    <string name="voice_no_speech">No speech detected. Check the microphone and try again.</string>
+    <string name="voice_error">Could not recognise speech. Please try again.</string>
+    <string name="voice_level">Level: %.1f dB</string>
 </resources>

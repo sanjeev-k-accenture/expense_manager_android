@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import com.example.expensemanager.config.theme.ExpenseManagerTheme
 import com.example.expensemanager.feature.transaction.presentation.navigation.TransactionNavigation
 import dagger.hilt.android.AndroidEntryPoint
-
+// Create an expense manager for me. Ask for my salary and expenses first.
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,0 +1,15 @@
+<resources>
+    <string name="voice_language">Langue</string>
+    <string name="voice_input">Saisie vocale</string>
+    <string name="voice_title">Reconnaissance vocale</string>
+    <string name="voice_tap_to_start">Appuyez sur le micro pour parler</string>
+    <string name="voice_listening">Écoute… appuyez à nouveau pour arrêter</string>
+    <string name="voice_placeholder">Vos mots apparaîtront ici</string>
+    <string name="voice_start_listening">Commencer l\'écoute</string>
+    <string name="voice_stop_listening">Arrêter l\'écoute</string>
+    <string name="voice_permission_denied">L\'autorisation du microphone est requise pour la saisie vocale.</string>
+    <string name="voice_not_available">La reconnaissance vocale n\'est pas disponible sur cet appareil.</string>
+    <string name="voice_no_speech">Aucune parole détectée. Vérifiez le microphone et réessayez.</string>
+    <string name="voice_error">Impossible de reconnaître la voix. Veuillez réessayer.</string>
+    <string name="voice_level">Niveau : %.1f dB</string>
+</resources>

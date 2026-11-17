@@ -1,0 +1,15 @@
+<resources>
+    <string name="voice_language">Язык</string>
+    <string name="voice_input">Голосовой ввод</string>
+    <string name="voice_title">Распознавание речи</string>
+    <string name="voice_tap_to_start">Нажмите на микрофон, чтобы начать говорить</string>
+    <string name="voice_listening">Слушаю… нажмите ещё раз, чтобы остановить</string>
+    <string name="voice_placeholder">Здесь появятся ваши слова</string>
+    <string name="voice_start_listening">Начать прослушивание</string>
+    <string name="voice_stop_listening">Остановить прослушивание</string>
+    <string name="voice_permission_denied">Для голосового ввода требуется разрешение на использование микрофона.</string>
+    <string name="voice_not_available">Распознавание речи недоступно на этом устройстве.</string>
+    <string name="voice_no_speech">Речь не обнаружена. Проверьте микрофон и повторите попытку.</string>
+    <string name="voice_error">Не удалось распознать речь. Повторите попытку.</string>
+    <string name="voice_level">Уровень: %.1f дБ</string>
+</resources>

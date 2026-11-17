@@ -12,6 +12,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.expensemanager.R
+import com.example.expensemanager.feature.voice.presentation.VoiceRecognitionScreen
+import com.example.expensemanager.feature.voice.presentation.VoiceRecognitionViewModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactiondetail.screen.TransactionDetailScreen
 import com.example.expensemanager.feature.transaction.presentation.ui.transactiondetail.viewmodel.TransactionDetailViewModel
 import com.example.expensemanager.feature.transaction.presentation.ui.transactionform.screen.TransactionFormScreen
@@ -57,6 +59,13 @@ fun TransactionNavigation(modifier: Modifier = Modifier, snackbarHostState: Snac
                 navController = navController,
                 uiStateFlow = viewModel.uiState,
                 handleUiAction = viewModel::handleUiAction,
+            )
+        }
+
+        composable(route = TransactionDestination.Voice.route) {
+            VoiceRecognitionScreen(
+                modifier = modifier,
+                viewModel = hiltViewModel<VoiceRecognitionViewModel>()
             )
         }
 

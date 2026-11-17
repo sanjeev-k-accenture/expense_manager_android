@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,6 +28,7 @@ fun TransactionHomeView(
     modifier: Modifier = Modifier,
     transactionsHomeUiModel: TransactionHomeUiModel,
     onAddTxnBtnClick: () -> Unit,
+    onVoiceBtnClick: () -> Unit = {},
     onTransactionClick: (id: Int) -> Unit
 ) {
     if (transactionsHomeUiModel.transactionHistoryList.isEmpty()) {
@@ -84,6 +86,15 @@ fun TransactionHomeView(
                     )
                 ) {
                     Text(stringResource(R.string.add_transaction))
+                }
+
+                OutlinedButton(
+                    onClick = onVoiceBtnClick,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp, start = 16.dp, end = 16.dp)
+                ) {
+                    Text(stringResource(R.string.voice_input))
                 }
             }
         }
